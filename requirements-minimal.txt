@@ -1,0 +1,34 @@
+# ================================
+# MemoTime Minimal Requirements
+# Core dependencies only for basic functionality
+# ================================
+
+# Core Scientific Computing
+numpy==1.26.4
+
+# Deep Learning
+torch==2.3.0
+
+# LLM API
+openai==1.50.2
+
+# NLP & Embeddings
+sentence-transformers==4.1.0
+FlagEmbedding==1.3.4
+spacy==3.8.5
+
+# Vector Search
+faiss-cpu==1.10.0
+
+# Machine Learning
+scikit-learn==1.5.0
+
+# Utilities
+tqdm==4.66.4
+psutil==5.9.0
+pyyaml==6.0.2
+requests==2.32.3
+python-dateutil==2.9.0
+
+# After installation, run:
+# python -m spacy download en_core_web_sm

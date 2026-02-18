@@ -1,0 +1,150 @@
+# ================================
+# MemoTime Project Requirements
+# Generated for Python 3.9+
+# ================================
+
+# ============================================================
+# CORE DEPENDENCIES (Required)
+# ============================================================
+
+# Scientific Computing
+numpy==1.26.4
+scipy==1.13.1
+
+# Deep Learning Framework
+torch==2.3.0
+# Note: For GPU support, install with: pip install torch --index-url https://download.pytorch.org/whl/cu121
+
+# Progress Bar
+tqdm==4.66.4
+
+# System Monitoring
+psutil==5.9.0
+
+# ============================================================
+# LLM & API CLIENTS (Required)
+# ============================================================
+
+# OpenAI API
+openai==1.50.2
+
+# Google AI (Optional but recommended)
+google-generativeai==0.7.2
+google-api-python-client==2.139.0
+google-auth==2.32.0
+google-api-core==2.19.1
+googleapis-common-protos==1.63.2
+google-auth-httplib2==0.2.0
+
+# ============================================================
+# NLP & EMBEDDING MODELS (Required)
+# ============================================================
+
+# Sentence Transformers
+sentence-transformers==4.1.0
+
+# Transformers (for additional models)
+transformers==4.51.3
+tokenizers==0.21.1
+
+# BGE-M3 Embedding Model
+FlagEmbedding==1.3.4
+
+# SpaCy for NLP
+spacy==3.8.5
+# Run after install: python -m spacy download en_core_web_sm
+
+# ============================================================
+# VECTOR SEARCH & RETRIEVAL (Required)
+# ============================================================
+
+# FAISS for vector similarity search
+faiss-cpu==1.10.0
+# For GPU support, replace with: faiss-gpu==1.10.0
+
+# ============================================================
+# MACHINE LEARNING (Required)
+# ============================================================
+
+# Scikit-learn
+scikit-learn==1.5.0
+
+# ============================================================
+# DATA PROCESSING & UTILITIES (Required)
+# ============================================================
+
+# Date/Time utilities
+python-dateutil==2.9.0.post0
+
+# YAML parsing
+pyyaml==6.0.2
+
+# HTTP requests
+requests==2.32.3
+
+# Regular expressions (enhanced)
+regex==2024.5.15
+
+# Async support
+asyncio  # Built-in for Python 3.4+
+
+# ============================================================
+# OPTIONAL DEPENDENCIES
+# ============================================================
+
+# Data Processing
+pandas==2.2.2
+datasets==2.19.0
+
+# HTTP Client (advanced)
+httpx==0.27.0
+httpcore==1.0.5
+
+# Token counting
+tiktoken==0.7.0
+
+# Job parallelization
+joblib==1.4.2
+
+# HuggingFace Hub
+huggingface-hub==0.30.2
+
+# File lock utilities
+filelock==3.14.0
+
+# ============================================================
+# DEVELOPMENT TOOLS (Optional - for testing/development)
+# ============================================================
+
+# Uncomment these if you need them:
+# jupyter==1.0.0
+# ipython==8.12.3
+# ipykernel==6.30.1
+# matplotlib==3.9.4
+# seaborn==0.13.2
+
+# ============================================================
+# INSTALLATION NOTES
+# ============================================================
+#
+# BASIC INSTALLATION:
+#   pip install -r requirements.txt
+#   python -m spacy download en_core_web_sm
+#
+# GPU SUPPORT (Recommended):
+#   1. Install PyTorch with CUDA:
+#      pip install torch --index-url https://download.pytorch.org/whl/cu121
+#   2. Replace faiss-cpu with faiss-gpu:
+#      pip uninstall faiss-cpu
+#      pip install faiss-gpu
+#
+# MINIMAL INSTALLATION (core features only):
+#   pip install numpy torch openai tqdm sentence-transformers faiss-cpu FlagEmbedding spacy scikit-learn psutil
+#   python -m spacy download en_core_web_sm
+#
+# ENVIRONMENT SETUP:
+#   export OPENAI_API_KEY="your-api-key-here"
+#
+# VERIFY INSTALLATION:
+#   python -c "import torch; import openai; import faiss; import spacy; from FlagEmbedding import BGEM3FlagModel; print('All dependencies OK')"
+#
