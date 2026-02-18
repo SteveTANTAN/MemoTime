@@ -23,7 +23,7 @@ If you are interested or inspired by this work, you can cite us by:
 Large Language Models exhibit strong reasoning abilities but often fail to maintain **temporal consistency** when questions involve multiple entities, compound operators, and evolving event sequences.
 
 <p align="center">
-  <img src="intro.png" alt="MemoTime"/>
+  <img src="MemoTime.jpg" alt="MemoTime"/>
 </p>
 
 
