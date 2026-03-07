@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -55,15 +55,23 @@
         html[data-theme="dark"] .pill-button { border-color: var(--border-dark); background-color: var(--panel-dark); }
         html[data-theme="light"] .pill-button { border-color: var(--border-light); background-color: var(--panel-light); }
 
-        .text-brand-theme { color: var(--brand-dark); }
-        html[data-theme="light"] .text-brand-theme { color: var(--brand-strong-light); }
+        .text-brand-theme { 
+            background: linear-gradient(135deg, var(--brand-strong-dark) 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        [data-theme="light"] .text-brand-theme {
+            background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         
         .bg-code-theme { transition: all 0.3s; }
         html[data-theme="dark"] .bg-code-theme { background-color: #010409; color: #d1d5db; }
         html[data-theme="light"] .bg-code-theme { background-color: #f1f5f9; color: #1e293b; }
     </style>
 </head>
-<body>
+<body class="transition-colors duration-300">
 
     <div class="fixed top-0 left-0 right-0 h-1 z-50 transform origin-left scale-x-0" id="progress"></div>
 
@@ -72,43 +80,51 @@
             <a href="#top" class="flex items-center space-x-2 text-xl font-bold">
                 <img src="MemoTime_logo.png" alt="Logo" class="w-8 h-8" onerror="this.style.display='none'">
                 <div class="flex flex-col">
-                    <span class="text-brand-theme leading-none">MemoTime</span>
+                    <span class="text-brand-theme leading-none" style="-webkit-text-fill-color: initial; background: none;">MemoTime</span>
                     <span class="text-xs font-medium opacity-60">WWW 2026</span>
                 </div>
             </a>
             <div class="flex items-center space-x-6">
                 <nav class="hidden md:flex space-x-6 text-sm font-medium opacity-80">
-                    <a href="#abstract" class="hover:text-brand-theme transition-colors">Abstract</a>
-                    <a href="#method" class="hover:text-brand-theme transition-colors">Tree of Time</a>
-                    <a href="#install" class="hover:text-brand-theme transition-colors">Quick Start</a>
-                    <a href="#bibtex" class="hover:text-brand-theme transition-colors">Cite</a>
+                    <a href="#abstract" class="hover:text-blue-500 transition-colors">Abstract</a>
+                    <a href="#method" class="hover:text-blue-500 transition-colors">Tree of Time</a>
+                    <a href="#install" class="hover:text-blue-500 transition-colors">Quick Start</a>
+                    <a href="#bibtex" class="hover:text-blue-500 transition-colors">Cite</a>
                 </nav>
                 <button class="p-2 rounded-full pill-button" id="themeToggle">
-                    <span id="theme-icon">🌙</span>
+                    <span id="theme-icon">☀️</span>
                 </button>
             </div>
         </div>
     </nav>
 
-    <header id="top" class="min-h-[80vh] flex items-center justify-center text-center px-4 relative overflow-hidden">
+    <header id="top" class="min-h-[85vh] flex items-center justify-center text-center px-4 relative overflow-hidden">
         <div class="absolute inset-0 z-0">
-             <div class="absolute inset-0 bg-gradient-hero-light opacity-0" id="hero-gradient-light"></div>
-             <div class="absolute inset-0 bg-gradient-hero-dark opacity-100" id="hero-gradient-dark"></div>
+             <div class="absolute inset-0 bg-gradient-hero-light opacity-100" id="hero-gradient-light"></div>
+             <div class="absolute inset-0 bg-gradient-hero-dark opacity-0" id="hero-gradient-dark"></div>
         </div>
         
-        <div class="container mx-auto py-16 relative z-10">
-            <div class="inline-block px-4 py-1.5 mb-6 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-500 text-sm font-semibold">
-                Accepted by WWW 2026 (Main Conference)
+        <div class="container mx-auto py-12 relative z-10">
+            <div class="inline-block px-4 py-1.5 mb-10 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 text-sm font-semibold tracking-wide">
+                Accepted by <span class="font-bold">ACM The Web Conference 2026 (WWW 2026)</span>
             </div>
-            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-8">
+
+            <div class="mb-8 flex justify-center">
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+                    <img src="MemoTime_logo.png" alt="MemoTime Logo" class="relative w-32 h-32 md:w-40 md:h-40 object-contain" onerror="this.src='https://via.placeholder.com/160?text=MemoTime';">
+                </div>
+            </div>
+
+            <h1 class="text-4xl md:text-7xl font-extrabold leading-[1.15] mb-8 tracking-tight text-slate-900">
                 <span class="text-brand-theme">MemoTime:</span> <br>
-                Memory-Augmented Temporal Knowledge Graph <br> 
+                Memory-Augmented Temporal Knowledge Graph <br class="hidden md:block">
                 Enhanced Large Language Model Reasoning
             </h1>
 
             <div class="mb-10 text-lg md:text-xl font-medium opacity-90 space-y-2">
                 <p>
-                    <a href="https://stevetantan.github.io/" class="text-brand-theme hover:underline">Xingyu Tan</a><sup>1,2</sup> · 
+                    <a href="https://stevetantan.github.io/" class="text-blue-600 hover:underline">Xingyu Tan</a><sup>1,2</sup> · 
                     Xiaoyang Wang<sup>1</sup> · Qing Liu<sup>2</sup> · Xiwei Xu<sup>2</sup> · <br class="md:hidden">
                     Xin Yuan<sup>2</sup> · Liming Zhu<sup>2</sup> · Wenjie Zhang<sup>1</sup>
                 </p>
@@ -132,7 +148,7 @@
 
     <main class="container mx-auto px-4 md:px-8 max-w-5xl">
         <section id="abstract" class="section-panel p-8 md:p-12 rounded-3xl mb-12">
-            <h2 class="text-3xl font-bold mb-6 text-brand-theme">Abstract</h2>
+            <h2 class="text-3xl font-bold mb-6 text-blue-600">Abstract</h2>
             <p class="text-lg leading-relaxed opacity-80 italic mb-8 text-center">
                 How can LLMs stay temporally faithful in a complex, evolving world?
             </p>
@@ -142,7 +158,7 @@
                 It enables operator-aware reasoning with dynamic evidence retrieval and a <strong>self-evolving experience memory</strong>, allowing the model to reuse prior reasoning for efficiency and stability.
             </p>
             <div class="mt-12">
-                <img src="MemoTime.jpg" alt="MemoTime Framework" class="w-full rounded-xl shadow-2xl border border-gray-800">
+                <img src="MemoTime.jpg" alt="MemoTime Framework" class="w-full rounded-xl shadow-2xl border border-gray-200" onerror="this.src='https://via.placeholder.com/1200x600?text=MemoTime+Framework+Image';">
                 <p class="text-sm text-center mt-4 opacity-50">Figure 1: Overview of MemoTime's Memory-Augmented Reasoning Workflow.</p>
             </div>
         </section>
@@ -151,26 +167,26 @@
             <h2 class="text-3xl font-bold mb-8 text-center">Core Innovations</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="section-panel p-8 rounded-2xl">
-                    <h3 class="text-xl font-bold mb-4 text-brand-theme">🌲 Tree of Time (ToT)</h3>
+                    <h3 class="text-xl font-bold mb-4 text-blue-600">🌲 Tree of Time (ToT)</h3>
                     <p class="opacity-80">Decomposes multi-hop temporal questions into hierarchical sub-tasks, ensuring each entity and event is synchronized along a shared timeline.</p>
                 </div>
                 <div class="section-panel p-8 rounded-2xl">
-                    <h3 class="text-xl font-bold mb-4 text-brand-theme">🧠 Experience Memory</h3>
+                    <h3 class="text-xl font-bold mb-4 text-blue-600">🧠 Experience Memory</h3>
                     <p class="opacity-80">A self-evolving store that captures and reuses successful reasoning paths, reducing redundant computations and improving long-term stability.</p>
                 </div>
                 <div class="section-panel p-8 rounded-2xl">
-                    <h3 class="text-xl font-bold mb-4 text-brand-theme">🔍 Operator-Aware Retrieval</h3>
+                    <h3 class="text-xl font-bold mb-4 text-blue-600">🔍 Operator-Aware Retrieval</h3>
                     <p class="opacity-80">Adapts retrieval strategies based on temporal operators (e.g., <i>before, after, during</i>), ensuring high-precision evidence fetching.</p>
                 </div>
                 <div class="section-panel p-8 rounded-2xl">
-                    <h3 class="text-xl font-bold mb-4 text-brand-theme">⚖️ Faithfulness Verification</h3>
+                    <h3 class="text-xl font-bold mb-4 text-blue-600">⚖️ Faithfulness Verification</h3>
                     <p class="opacity-80">Multi-source cross-verification between Knowledge Graphs and text to eliminate hallucinations and temporal contradictions.</p>
                 </div>
             </div>
         </section>
 
         <section id="install" class="section-panel p-8 md:p-12 rounded-3xl mb-12">
-            <h2 class="text-3xl font-bold mb-6 text-brand-theme">Quick Start</h2>
+            <h2 class="text-3xl font-bold mb-6 text-blue-600">Quick Start</h2>
             <div class="space-y-4">
                 <p class="opacity-80 font-medium">1. Installation</p>
                 <pre class="bg-code-theme p-5 rounded-xl overflow-x-auto text-sm"><code>git clone https://github.com/SteveTANTAN/MemoTime
@@ -190,7 +206,7 @@ bash setup_dependencies.sh</code></pre>
   journal={arXiv preprint arXiv:2510.13614},
   year={2025}
 }</code></pre>
-            <button onclick="copyBib()" class="mt-4 flex items-center px-6 py-2 rounded-full pill-button hover:bg-brand-theme hover:text-white transition-all">
+            <button onclick="copyBib()" class="mt-4 flex items-center px-6 py-2 rounded-full pill-button hover:bg-blue-600 hover:text-white transition-all border-blue-200">
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2v-2M8 5a2 2 0 002 2h6M8 5a2 2 0 012-2h4a2 2 0 012 2v2"></path></svg>
                 <span id="copyText">Copy Citation</span>
             </button>
@@ -202,7 +218,7 @@ bash setup_dependencies.sh</code></pre>
     </footer>
 
     <script>
-        // Progress Bar
+        // Progress Bar logic
         const progress = document.getElementById('progress');
         window.addEventListener('scroll', () => {
             const h = document.documentElement;
@@ -210,22 +226,43 @@ bash setup_dependencies.sh</code></pre>
             progress.style.transform = `scaleX(${scrolled})`;
         });
 
-        // Theme Toggle
+        // Theme Toggle logic
         const root = document.documentElement;
         const toggle = document.getElementById('themeToggle');
         const icon = document.getElementById('theme-icon');
         const gradientL = document.getElementById('hero-gradient-light');
         const gradientD = document.getElementById('hero-gradient-dark');
 
+        // Initialization
+        const savedTheme = localStorage.getItem('memotime-theme') || 'light';
+        root.setAttribute('data-theme', savedTheme);
+        updateUI(savedTheme);
+
         toggle.addEventListener('click', () => {
-            const isDark = root.getAttribute('data-theme') === 'dark';
-            const next = isDark ? 'light' : 'dark';
+            const current = root.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
             root.setAttribute('data-theme', next);
-            icon.textContent = isDark ? '☀️' : '🌙';
-            gradientL.style.opacity = isDark ? '1' : '0';
-            gradientD.style.opacity = isDark ? '0' : '1';
-            progress.className = `fixed top-0 left-0 right-0 h-1 z-50 transform origin-left scale-x-0 ${next === 'dark' ? 'progress-dark' : 'progress-light'}`;
+            localStorage.setItem('memotime-theme', next);
+            updateUI(next);
         });
+
+        function updateUI(theme) {
+            const isDark = theme === 'dark';
+            icon.textContent = isDark ? '🌙' : '☀️';
+            gradientL.style.opacity = isDark ? '0' : '1';
+            gradientD.style.opacity = isDark ? '1' : '0';
+            progress.className = `fixed top-0 left-0 right-0 h-1 z-50 transform origin-left scale-x-0 ${isDark ? 'progress-dark' : 'progress-light'}`;
+            
+            // Adjust title color for better readability in dark mode
+            const h1 = document.querySelector('h1');
+            if(isDark) {
+                h1.classList.remove('text-slate-900');
+                h1.classList.add('text-slate-100');
+            } else {
+                h1.classList.remove('text-slate-100');
+                h1.classList.add('text-slate-900');
+            }
+        }
 
         function copyBib() {
             const text = document.getElementById('bib').innerText;
