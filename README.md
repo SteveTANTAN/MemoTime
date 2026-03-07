@@ -10,7 +10,7 @@
 <p align="center">
   <!-- Project homepage -->
   
-<a href="https://github.com/SteveTANTAN/MemoTime" target="_blank">
+<a href="https://stevetantan.github.io/MemoTime/" target="_blank">
   <img src="MemoTime_logo.png" alt="Memotime Logo" height="28" style="vertical-align:middle; margin-right:4px;">
   <img alt="Project Page"
        src="https://img.shields.io/badge/Page-Homepage-00BFFF?style=for-the-badge&logoColor=white">
