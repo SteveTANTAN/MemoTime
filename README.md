@@ -6,7 +6,34 @@
 
 # MemoTime: Memory-Augmented Temporal Knowledge Graph Enhanced Large Language Model Reasoning [WWW 2026]
 
----
+
+<p align="center">
+  <!-- Project homepage -->
+  
+<a href="https://github.com/SteveTANTAN/MemoTime" target="_blank">
+  <img src="MemoTime_logo.png" alt="Memotime Logo" height="28" style="vertical-align:middle; margin-right:4px;">
+  <img alt="Project Page"
+       src="https://img.shields.io/badge/Page-Homepage-00BFFF?style=for-the-badge&logoColor=white">
+</a>
+
+
+  <!-- arXiv -->
+  <a href="https://arxiv.org/abs/2510.13614" target="_blank">
+    <img alt="arXiv"
+         src="https://img.shields.io/badge/arXiv-2510.13614-FF4500?style=for-the-badge&logo=arxiv&logoColor=white">
+  </a>
+
+
+
+
+  <!-- Stars -->
+  <a href="https://github.com/SteveTANTAN/MemoTime/stargazers" target="_blank">
+    <img alt="GitHub Stars"
+         src="https://img.shields.io/github/stars/SteveTANTAN/MemoTime?style=for-the-badge&label=stars&color=FFD700&logo=github&logoColor=black">
+  </a>
+
+
+</p>
 
 ## News!
 Our paper has been accepted for publication at WWW 2026! 
