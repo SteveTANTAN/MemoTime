@@ -105,9 +105,7 @@
         </div>
         
         <div class="container mx-auto py-12 relative z-10">
-            <div class="inline-block px-4 py-1.5 mb-10 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 text-sm font-semibold tracking-wide">
-                Accepted by <span class="font-bold">ACM The Web Conference 2026 (WWW 2026)</span>
-            </div>
+
 
             <div class="mb-8 flex justify-center">
                 <div class="relative group">
@@ -117,11 +115,13 @@
             </div>
 
             <h1 class="text-4xl md:text-7xl font-extrabold leading-[1.15] mb-8 tracking-tight text-slate-900">
-                <span class="text-brand-theme">MemoTime:</span> <br>
-                Memory-Augmented Temporal Knowledge Graph <br class="hidden md:block">
+                <span class="text-brand-theme">MemoTime:</span> 
+                Memory-Augmented Temporal Knowledge Graph
                 Enhanced Large Language Model Reasoning
             </h1>
-
+            <div class="inline-block px-7 py-2 mb-10 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-00 text-lg font-semibold tracking-wide">
+                Accepted by <span class="font-bold">ACM The Web Conference 2026 (WWW 2026)</span>
+            </div>
             <div class="mb-10 text-lg md:text-xl font-medium opacity-90 space-y-2">
                 <p>
                     <a href="https://stevetantan.github.io/" class="text-blue-600 hover:underline">Xingyu Tan</a><sup>1,2</sup> · 
@@ -218,42 +218,47 @@ bash setup_dependencies.sh</code></pre>
     </footer>
 
     <script>
-        // Progress Bar logic
-        const progress = document.getElementById('progress');
-        window.addEventListener('scroll', () => {
-            const h = document.documentElement;
-            const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight);
-            progress.style.transform = `scaleX(${scrolled})`;
-        });
-
-        // Theme Toggle logic
+        // --- 1. 基础 UI 元素获取 ---
         const root = document.documentElement;
         const toggle = document.getElementById('themeToggle');
         const icon = document.getElementById('theme-icon');
         const gradientL = document.getElementById('hero-gradient-light');
         const gradientD = document.getElementById('hero-gradient-dark');
+        const progress = document.getElementById('progress');
 
-        // Initialization
-        const savedTheme = localStorage.getItem('memotime-theme') || 'light';
-        root.setAttribute('data-theme', savedTheme);
-        updateUI(savedTheme);
+        // --- 2. 核心：智能判断主题 ---
+        function getSmartTheme() {
+            // 如果用户手动点击过，优先尊重用户的选择
+            const savedTheme = localStorage.getItem('memotime-theme');
+            if (savedTheme) return savedTheme;
 
-        toggle.addEventListener('click', () => {
-            const current = root.getAttribute('data-theme');
-            const next = current === 'dark' ? 'light' : 'dark';
-            root.setAttribute('data-theme', next);
-            localStorage.setItem('memotime-theme', next);
-            updateUI(next);
-        });
+            // 获取当前小时 (0-23)
+            const hour = new Date().getHours();
+            const isNight = hour >= 18 || hour < 6;
 
+            // 获取系统是否偏好深色模式
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            // 逻辑：如果是深夜，或者系统是深色模式，则默认深色
+            return (isNight || prefersDark) ? 'dark' : 'light';
+        }
+
+        // --- 3. UI 更新逻辑 ---
         function updateUI(theme) {
             const isDark = theme === 'dark';
+            root.setAttribute('data-theme', theme);
+            
+            // 更新图标
             icon.textContent = isDark ? '🌙' : '☀️';
+            
+            // 更新渐变背景
             gradientL.style.opacity = isDark ? '0' : '1';
             gradientD.style.opacity = isDark ? '1' : '0';
+            
+            // 更新进度条颜色
             progress.className = `fixed top-0 left-0 right-0 h-1 z-50 transform origin-left scale-x-0 ${isDark ? 'progress-dark' : 'progress-light'}`;
             
-            // Adjust title color for better readability in dark mode
+            // 调整主标题颜色 (针对深色/浅色背景对比度)
             const h1 = document.querySelector('h1');
             if(isDark) {
                 h1.classList.remove('text-slate-900');
@@ -264,6 +269,33 @@ bash setup_dependencies.sh</code></pre>
             }
         }
 
+        // --- 4. 初始化 ---
+        let currentTheme = getSmartTheme();
+        updateUI(currentTheme);
+
+        // --- 5. 事件监听 ---
+        // 手动切换
+        toggle.addEventListener('click', () => {
+            currentTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            localStorage.setItem('memotime-theme', currentTheme);
+            updateUI(currentTheme);
+        });
+
+        // 监听系统主题变化 (比如用户在控制中心改了模式)
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            if (!localStorage.getItem('memotime-theme')) {
+                updateUI(e.matches ? 'dark' : 'light');
+            }
+        });
+
+        // 滚动进度条
+        window.addEventListener('scroll', () => {
+            const h = document.documentElement;
+            const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight);
+            progress.style.transform = `scaleX(${scrolled})`;
+        });
+
+        // BibTeX 复制
         function copyBib() {
             const text = document.getElementById('bib').innerText;
             navigator.clipboard.writeText(text);
