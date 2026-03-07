@@ -87,7 +87,8 @@
             <div class="flex items-center space-x-6">
                 <nav class="hidden md:flex space-x-6 text-sm font-medium opacity-80">
                     <a href="#abstract" class="hover:text-blue-500 transition-colors">Abstract</a>
-                    <a href="#method" class="hover:text-blue-500 transition-colors">Tree of Time</a>
+                    <a href="#method" class="hover:text-blue-500 transition-colors">Methodology</a>
+                    <a href="#results" class="hover:text-blue-500 transition-colors">Results</a>
                     <a href="#install" class="hover:text-blue-500 transition-colors">Quick Start</a>
                     <a href="#bibtex" class="hover:text-blue-500 transition-colors">Cite</a>
                 </nav>
@@ -105,8 +106,6 @@
         </div>
         
         <div class="container mx-auto py-12 relative z-10">
-
-
             <div class="mb-8 flex justify-center">
                 <div class="relative group">
                     <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
@@ -163,26 +162,52 @@
             </div>
         </section>
 
-        <section id="method" class="mb-12">
+
+<section id="method" class="mb-12">
             <h2 class="text-3xl font-bold mb-8 text-center">Core Innovations</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="section-panel p-8 rounded-2xl">
-                    <h3 class="text-xl font-bold mb-4 text-blue-600">🌲 Tree of Time (ToT)</h3>
-                    <p class="opacity-80">Decomposes multi-hop temporal questions into hierarchical sub-tasks, ensuring each entity and event is synchronized along a shared timeline.</p>
+                <div class="section-panel p-8 rounded-2xl border-t-4 border-blue-500 shadow-sm hover:shadow-md transition-shadow">
+                    <h3 class="text-xl font-bold mb-4 text-blue-600">🌲 Tree of Time Hierarchical Reasoning</h3>
+                    <p class="opacity-80 leading-relaxed">A hierarchical controller that decomposes complex temporal questions into a <strong>recursive reasoning tree</strong>. It enforces <strong>monotonic timestamp progression</strong> and synchronizes multiple entities under unified temporal bounds to ensure global reasoning coherence.</p>
                 </div>
-                <div class="section-panel p-8 rounded-2xl">
-                    <h3 class="text-xl font-bold mb-4 text-blue-600">🧠 Experience Memory</h3>
-                    <p class="opacity-80">A self-evolving store that captures and reuses successful reasoning paths, reducing redundant computations and improving long-term stability.</p>
+
+                <div class="section-panel p-8 rounded-2xl border-t-4 border-blue-500 shadow-sm hover:shadow-md transition-shadow">
+                    <h3 class="text-xl font-bold mb-4 text-blue-600">🧠 Self-evolving Experience Memory</h3>
+                    <p class="opacity-80 leading-relaxed">A dynamic memory store that records successful reasoning traces and toolkit decisions. It forms a <strong>closed feedback loop</strong>, allowing the model to <strong>recall, reuse, and refine</strong> prior trajectories to progressively improve performance across inference cycles.</p>
                 </div>
-                <div class="section-panel p-8 rounded-2xl">
-                    <h3 class="text-xl font-bold mb-4 text-blue-600">🔍 Operator-Aware Retrieval</h3>
-                    <p class="opacity-80">Adapts retrieval strategies based on temporal operators (e.g., <i>before, after, during</i>), ensuring high-precision evidence fetching.</p>
+
+                <div class="section-panel p-8 rounded-2xl border-t-4 border-blue-500 shadow-sm hover:shadow-md transition-shadow">
+                    <h3 class="text-xl font-bold mb-4 text-blue-600">🔍 Hybrid Retrieval and Pruning</h3>
+                    <p class="opacity-80 leading-relaxed">An <strong>operator-aware</strong> retrieval layer that unifies <strong>symbolic graph expansion</strong> with dense embedding search. It adaptively selects strategies for diverse temporal operators, ensuring precise evidence grounding while significantly reducing retrieval noise.</p>
                 </div>
-                <div class="section-panel p-8 rounded-2xl">
-                    <h3 class="text-xl font-bold mb-4 text-blue-600">⚖️ Faithfulness Verification</h3>
-                    <p class="opacity-80">Multi-source cross-verification between Knowledge Graphs and text to eliminate hallucinations and temporal contradictions.</p>
+
+                <div class="section-panel p-8 rounded-2xl border-t-4 border-blue-500 shadow-sm hover:shadow-md transition-shadow">
+                    <h3 class="text-xl font-bold mb-4 text-blue-600">⚖️ Temporal Faithfulness</h3>
+                    <p class="opacity-80 leading-relaxed">Ensures strict chronological validity by applying a <strong>temporal-first pruning</strong> policy. This mechanism filters out semantically relevant but temporally inconsistent paths, guaranteeing that all generated answers are <strong>factually grounded</strong> in the TKG structure.</p>
                 </div>
             </div>
+        </section>
+        
+        
+        <section id="results" class="section-panel p-8 md:p-12 rounded-3xl mb-12 bg-blue-50/10">
+            <h2 class="text-3xl font-bold mb-8 text-blue-600">Key Results</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mb-8">
+                <div class="p-6">
+                    <div class="text-4xl font-extrabold text-blue-500 mb-2">+24.0%</div>
+                    <p class="text-sm opacity-70">Improvement over strong baselines on MultiTQ.</p>
+                </div>
+                <div class="p-6">
+                    <div class="text-4xl font-extrabold text-blue-500 mb-2">4B ≈ GPT-4</div>
+                    <p class="text-sm opacity-70">Small models (e.g., Qwen3-4B) with MemoTime achieve GPT-4-Turbo level reasoning.</p>
+                </div>
+                <div class="p-6">
+                    <div class="text-4xl font-extrabold text-blue-500 mb-2">SOTA</div>
+                    <p class="text-sm opacity-70">Achieved state-of-the-art results on all tested TKGQA datasets.</p>
+                </div>
+            </div>
+            <p class="opacity-90 leading-relaxed">
+                Comprehensive experiments on <strong>MultiTQ</strong> and <strong>TimeQuestions</strong> confirm that MemoTime effectively compensates for the static nature of LLMs, enabling robust reasoning even with smaller backbones.
+            </p>
         </section>
 
         <section id="install" class="section-panel p-8 md:p-12 rounded-3xl mb-12">
@@ -200,11 +225,11 @@ bash setup_dependencies.sh</code></pre>
 
         <section id="bibtex" class="section-panel p-8 md:p-12 rounded-3xl">
             <h2 class="text-3xl font-bold mb-6">BibTeX</h2>
-            <pre id="bib" class="bg-code-theme p-6 rounded-xl overflow-x-auto text-sm"><code>@article{tan2025memotime,
-  title={Memotime: Memory-augmented temporal knowledge graph enhanced large language model reasoning},
+            <pre id="bib" class="bg-code-theme p-6 rounded-xl overflow-x-auto text-sm"><code>@inproceedings{tan2026memotime,
+  title={MemoTime: Memory-Augmented Temporal Knowledge Graph Enhanced Large Language Model Reasoning},
   author={Tan, Xingyu and Wang, Xiaoyang and Liu, Qing and Xu, Xiwei and Yuan, Xin and Zhu, Liming and Zhang, Wenjie},
-  journal={arXiv preprint arXiv:2510.13614},
-  year={2025}
+  booktitle={Proceedings of the ACM Web Conference 2026 (WWW '26)},
+  year={2026}
 }</code></pre>
             <button onclick="copyBib()" class="mt-4 flex items-center px-6 py-2 rounded-full pill-button hover:bg-blue-600 hover:text-white transition-all border-blue-200">
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2v-2M8 5a2 2 0 002 2h6M8 5a2 2 0 012-2h4a2 2 0 012 2v2"></path></svg>
@@ -228,18 +253,11 @@ bash setup_dependencies.sh</code></pre>
 
         // --- 2. 核心：智能判断主题 ---
         function getSmartTheme() {
-            // 如果用户手动点击过，优先尊重用户的选择
             const savedTheme = localStorage.getItem('memotime-theme');
             if (savedTheme) return savedTheme;
-
-            // 获取当前小时 (0-23)
             const hour = new Date().getHours();
             const isNight = hour >= 18 || hour < 6;
-
-            // 获取系统是否偏好深色模式
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-            // 逻辑：如果是深夜，或者系统是深色模式，则默认深色
             return (isNight || prefersDark) ? 'dark' : 'light';
         }
 
@@ -247,18 +265,10 @@ bash setup_dependencies.sh</code></pre>
         function updateUI(theme) {
             const isDark = theme === 'dark';
             root.setAttribute('data-theme', theme);
-            
-            // 更新图标
             icon.textContent = isDark ? '🌙' : '☀️';
-            
-            // 更新渐变背景
             gradientL.style.opacity = isDark ? '0' : '1';
             gradientD.style.opacity = isDark ? '1' : '0';
-            
-            // 更新进度条颜色
             progress.className = `fixed top-0 left-0 right-0 h-1 z-50 transform origin-left scale-x-0 ${isDark ? 'progress-dark' : 'progress-light'}`;
-            
-            // 调整主标题颜色 (针对深色/浅色背景对比度)
             const h1 = document.querySelector('h1');
             if(isDark) {
                 h1.classList.remove('text-slate-900');
@@ -274,28 +284,24 @@ bash setup_dependencies.sh</code></pre>
         updateUI(currentTheme);
 
         // --- 5. 事件监听 ---
-        // 手动切换
         toggle.addEventListener('click', () => {
             currentTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
             localStorage.setItem('memotime-theme', currentTheme);
             updateUI(currentTheme);
         });
 
-        // 监听系统主题变化 (比如用户在控制中心改了模式)
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
             if (!localStorage.getItem('memotime-theme')) {
                 updateUI(e.matches ? 'dark' : 'light');
             }
         });
 
-        // 滚动进度条
         window.addEventListener('scroll', () => {
             const h = document.documentElement;
             const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight);
             progress.style.transform = `scaleX(${scrolled})`;
         });
 
-        // BibTeX 复制
         function copyBib() {
             const text = document.getElementById('bib').innerText;
             navigator.clipboard.writeText(text);
