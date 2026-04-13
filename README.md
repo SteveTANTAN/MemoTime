@@ -41,11 +41,12 @@ Our paper has been accepted for publication at WWW 2026!
 ## How to cite
 If you are interested or inspired by this work, you can cite us by:
 ```sh
-@article{tan2025memotime,
+@inproceedings{tan2026memotime,
   title={Memotime: Memory-augmented temporal knowledge graph enhanced large language model reasoning},
   author={Tan, Xingyu and Wang, Xiaoyang and Liu, Qing and Xu, Xiwei and Yuan, Xin and Zhu, Liming and Zhang, Wenjie},
-  journal={arXiv preprint arXiv:2510.13614},
-  year={2025}
+  booktitle = {Proceedings of the ACM Web Conference 2026},
+  pages = {4220–4231},
+  year={2026}
 }
 ```
 
